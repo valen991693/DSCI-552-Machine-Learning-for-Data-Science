@@ -3,11 +3,11 @@
 ## Contents
 - `notebook/Kim_Beomjun_HW2.ipynb`: Homework 2 solution
 - `data/Folds5x2_pp.xlsx`: Combined Cycle Power Plant dataset
-- `references/`: Assignment and reference paper
+- `references/`: Homework instructions and reference paper
 
 ## Running the Notebook
-Run the notebook from the `notebook/` directory.
 
-The dataset is loaded using the relative path:
+Clone the repository and navigate to the Homework 2 notebook directory:
 
-`../data/Folds5x2_pp.xlsx`
+```bash
+cd "2. Homework 2/notebook"
