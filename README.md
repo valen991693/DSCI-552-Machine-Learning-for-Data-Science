@@ -7,12 +7,12 @@ This repository contains coursework and homework assignments for
 
 ```text
 DSCI-552-Machine-Learning-for-Data-Science/
-  2. Homework 2/
-      data/
-      notebook/
-      references/
-      README.md
-  .gitignore
-  README.md
-  requirements.txt
+|- 2. Homework 2/
+|  |- data/
+|  |- notebook/
+|  |- references/
+|  |- README.md
+|- .gitignore
+|- README.md
+|- requirements.txt
   
