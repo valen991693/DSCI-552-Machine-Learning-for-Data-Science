@@ -11,7 +11,7 @@ DSCI-552-Machine-Learning-for-Data-Science/
 |  |- data/
 |  |- notebook/
 |  |- references/
-|  |- README.md
+|  '- README.md
 |- .gitignore
 |- README.md
 |- requirements.txt
