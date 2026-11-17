@@ -1,99 +1,188 @@
-Data Set Name: Anuran Calls (MFCCs)
+# Anuran Calls (MFCCs) Dataset
 
-Abstract: (less than 200 characters).
+## Overview
 
-Acoustic features extracted from syllables of anuran (frogs) calls, including the family, the genus, and the species labels. 
+The **Anuran Calls (MFCCs)** dataset contains acoustic features extracted from syllables of frog calls, along with taxonomic labels for family, genus, and species.
 
-Source:
+The dataset was developed for classification tasks related to automatic anuran species recognition using bioacoustic signals.
 
-	Eng. Juan Gabriel Colonna <juancolonna@icomp.ufam.edu.br>
-	Prof. Eduardo Freire Nakamura <nakamura@icomp.ufam.edu.br>
-	Prof. Marco A. P. Cristo <marco.cristo@gmail.com>
-	Biologist and collaborator Prof. Marcelo Gordo <mgordo@ufam.edu.br>
-	Universidade Federal do Amazonas, Av. General Rodrigo Octavio Jordão Ramos, 1200 - Coroado I, Manaus - AM, 69067-005, Brasil.
+## Dataset Information
 
-Number of Instances (records in your data set): 7195
+| Attribute | Description |
+|---|---|
+| Dataset Name | Anuran Calls (MFCCs) |
+| Number of Instances | 7,195 |
+| Number of Features | 22 |
+| Feature Type | Mel-Frequency Cepstral Coefficients (MFCCs) |
+| Classification Labels | Family, Genus, Species |
+| Additional Column | RecordID |
+| Number of Families | 4 |
+| Number of Genera | 8 |
+| Number of Species | 10 |
 
-Number of Attributes (fields within each record): 22
+The dataset was created by segmenting **60 audio recordings** collected from individual frogs.
 
-Relevant Information:
+Each recording corresponds to one specimen, and the resulting syllables were extracted as individual observations for classification.
 
-This dataset was used in several classifications tasks related to the challenge of anuran species recognition through their calls. It is a multilabel dataset with three columns of labels. This dataset was created segmenting 60 audio records belonging to 4 different families, 8 genus, and 10 species. Each audio corresponds to one specimen (an individual frog), the record ID is also included as an extra column. We used the spectral entropy and a binary cluster method to detect audio frames belonging to each syllable. The segmentation and feature extraction were carried out in Matlab. After the segmentation we got 7195 syllables, which became instances for train and test the classifier. These records were collected in situ under real noise conditions (the background sound). Some species are from the campus of Federal University of Amazonas, Manaus, others from Mata Atlântica, Brazil, and one of them from Córdoba, Argentina. The recordings were stored in wav format with 44.1kHz of sampling frequency and 32bit of resolution, which allows us to analyze signals up to 22kHz. From every extracted syllable 22 MFCCs were calculated by using 44 triangular filters. These coefficients were normalized between -1 ≤ mfcc ≤ 1. The amount of instances per class are:
+## Data Collection and Processing
 
-Families:
-	 Bufonidae              68 
-     Dendrobatidae         542 
-     Hylidae              2165 
-     Leptodactylidae      4420 
+The audio recordings were collected under real-world environmental conditions, including background noise.
 
-Genus:
-     Adenomera          4150 
-     Ameerega            542 
-     Dendropsophus       310 
-     Hypsiboas          1593 
-     Leptodactylus       270 
-     Osteocephalus       114 
-     Rhinella             68 
-     Scinax              148 
+Recording locations include:
 
-Species:
-     AdenomeraAndre             672 
-     AdenomeraHylaedact…       3478 
-     Ameeregatrivittata         542 
-     HylaMinuta                 310 
-     HypsiboasCinerascens       472 
-     HypsiboasCordobae         1121 
-     LeptodactylusFuscus        270 
-     OsteocephalusOopha…        114 
-     Rhinellagranulosa           68 
-     ScinaxRuber                148 
+- Federal University of Amazonas, Manaus, Brazil
+- Atlantic Forest (Mata Atlântica), Brazil
+- Córdoba, Argentina
 
+The original recordings were stored in WAV format with the following specifications:
 
+- **Sampling Frequency:** 44.1 kHz
+- **Bit Depth:** 32 bits
+- **Maximum Analyzable Frequency:** Approximately 22 kHz
 
+### Segmentation
 
-Attribute Information:
+Audio segmentation was performed using:
 
-Mel-frequency cepstral coefficients (MFCCs) are coefficients that collectively make up an mel-frequency cepstrum (MFC). Due to each syllable has different length, every row (i) was normalized acording to MFCCs_i/(max(abs(MFCCs_i))).
+- Spectral entropy
+- Binary clustering
 
-Relevant Papers:
+These methods were used to identify audio frames corresponding to individual frog-call syllables.
 
-1) COLONNA, J. G.; CRISTO, M.; SALVATIERRA, M.; NAKAMURA, E. F. 
-An Incremental Technique for Real-Time Bioacoustic Signal Segmentation. 
-Expert Systems with Applications, v. 42, p. 7367-7374, 2015.
+Segmentation and feature extraction were performed in MATLAB.
 
-2) COLONNA, J. G.; GAMA, J.; NAKAMURA, E. F.
-How to Correctly Evaluate an Automatic Bioacoustics Classification Method. 
-In: 17th Conference of the Spanish Association for Artificial Intelligence (CAEPIA). 
-Lecture Notes in Computer Science. 986ed.: Springer International Publishing, 2016, v. , p. 37-47.
+The segmentation process produced **7,195 syllables**, which became the observations used for classification.
 
-3) COLONNA, J. G.; GAMA, J.; NAKAMURA, E. F. 
-Recognizing Family, Genus, and Species of Anuran Using a Hierarchical Classification Approach.
-Lecture Notes in Computer Science. 995ed.: Springer International Publishing, 2016, v. 9956, p. 198-212.
+### Feature Extraction
 
-4) COLONNA, J. G.; RIBAS, A. D.; SANTOS, E. M.; NAKAMURA, E. F.
-Feature Subset Selection for Automatically Classifying Anuran Calls Using Sensor Networks. 
-In: International Joint Conference on Neural Networks, 2012, Brisbane. 
-Proceedings of the International Joint Conference on Neural Networks (IJCNN 2012), 2012. p. 1-8. IEEE
+For each extracted syllable, **22 Mel-Frequency Cepstral Coefficients (MFCCs)** were calculated using 44 triangular filters.
 
-5) COLONNA, J. G.; PEET, T.; FERREIRA, C. A.; JORGE, A. M.; GOMES, E. F.; GAMA, J. (2016, July). 
-Automatic Classification of Anuran Sounds Using Convolutional Neural Networks. 
-In Proceedings of the Ninth International C* Conference on Computer Science & Software Engineering (No. C3S2E '16, pp. 73-78). ACM.
+Because syllables have different lengths, the MFCC values were normalized for each observation.
 
-6) COLONNA, J. G.; CRISTO, M.; NAKAMURA, E. F. (2014, August). 
-A Distributed Approach for Classifying Anuran Species Based on Their Calls. 
-In Pattern Recognition (ICPR), 2014 22nd International Conference on (pp. 1242-1247). IEEE.
+The normalization procedure was:
 
-7) RIBAS, A. D.; COLONNA, J. G.; FIGUEIREDO, C. M. S.; NAKAMURA, E. F.
-Similarity clustering for data fusion in wireless sensor networks using k-means
-The 2012 International Joint Conference on Neural Networks (IJCNN 2012), p. 1-7. IEEE
+$begin:math:display$
+\\text\{MFCC\}\_\{i\,\\text\{normalized\}\}
+\=
+\\frac\{\\text\{MFCC\}\_i\}
+\{\\max\(\|\\text\{MFCC\}\_i\|\)\}
+$end:math:display$
 
-8) DIAZ, J. M.; COLONNA, J. G.; SOARES, R. B.; FIGUEREIDO, C. M. S.; NAKAMURA, E. F.
-Compressive sensing for efficiently collecting wildlife sounds with wireless sensor networks
-21st International Conference on Computer Communications and Networks (ICCCN 2012), p. 1-7. IEEE
+The normalized coefficients fall within the range:
 
+$begin:math:display$
+\-1 \\leq \\text\{MFCC\} \\leq 1
+$end:math:display$
 
-Citation Requests / Acknowledgements:
-Please cite some of our papers.
+## Class Distribution
 
+The dataset contains three hierarchical classification labels:
 
+- Family
+- Genus
+- Species
 
+### Family Distribution
+
+| Family | Instances |
+|---|---:|
+| Bufonidae | 68 |
+| Dendrobatidae | 542 |
+| Hylidae | 2,165 |
+| Leptodactylidae | 4,420 |
+| **Total** | **7,195** |
+
+### Genus Distribution
+
+| Genus | Instances |
+|---|---:|
+| Adenomera | 4,150 |
+| Ameerega | 542 |
+| Dendropsophus | 310 |
+| Hypsiboas | 1,593 |
+| Leptodactylus | 270 |
+| Osteocephalus | 114 |
+| Rhinella | 68 |
+| Scinax | 148 |
+| **Total** | **7,195** |
+
+### Species Distribution
+
+| Species | Instances |
+|---|---:|
+| AdenomeraAndre | 672 |
+| AdenomeraHylaedactylus | 3,478 |
+| Ameeregatrivittata | 542 |
+| HylaMinuta | 310 |
+| HypsiboasCinerascens | 472 |
+| HypsiboasCordobae | 1,121 |
+| LeptodactylusFuscus | 270 |
+| OsteocephalusOophagus | 114 |
+| Rhinellagranulosa | 68 |
+| ScinaxRuber | 148 |
+| **Total** | **7,195** |
+
+## Dataset Structure
+
+The dataset contains:
+
+- **22 numerical features:** MFCC coefficients
+- **3 categorical labels:** Family, Genus, Species
+- **1 identifier:** RecordID
+
+The MFCC coefficients serve as predictor variables, while the taxonomic labels serve as classification targets.
+
+The RecordID identifies the original audio recording associated with each observation.
+
+## Applications
+
+The dataset has been used in research involving:
+
+- Automatic frog species recognition
+- Bioacoustic signal classification
+- Hierarchical classification
+- Feature subset selection
+- Acoustic signal segmentation
+- Wireless sensor networks
+- Machine learning for biodiversity monitoring
+
+## Contributors
+
+The dataset was developed by researchers affiliated with the **Universidade Federal do Amazonas**, Brazil.
+
+- **Juan Gabriel Colonna** — Engineering and Research
+- **Eduardo Freire Nakamura** — Professor
+- **Marco A. P. Cristo** — Professor
+- **Marcelo Gordo** — Biologist and Collaborator
+
+**Institution:**
+
+Universidade Federal do Amazonas  
+Av. General Rodrigo Octavio Jordão Ramos, 1200  
+Coroado I, Manaus - AM, 69067-005, Brazil
+
+## Relevant Publications
+
+1. Colonna, J. G., Cristo, M., Salvatierra, M., & Nakamura, E. F. (2015). An incremental technique for real-time bioacoustic signal segmentation. *Expert Systems with Applications, 42*, 7367–7374.
+
+2. Colonna, J. G., Gama, J., & Nakamura, E. F. (2016). How to correctly evaluate an automatic bioacoustics classification method. In *17th Conference of the Spanish Association for Artificial Intelligence (CAEPIA)* (pp. 37–47). Springer International Publishing.
+
+3. Colonna, J. G., Gama, J., & Nakamura, E. F. (2016). Recognizing family, genus, and species of anuran using a hierarchical classification approach. *Lecture Notes in Computer Science, 9956*, 198–212.
+
+4. Colonna, J. G., Ribas, A. D., Santos, E. M., & Nakamura, E. F. (2012). Feature subset selection for automatically classifying anuran calls using sensor networks. In *Proceedings of the International Joint Conference on Neural Networks (IJCNN 2012)* (pp. 1–8). IEEE.
+
+5. Colonna, J. G., Peet, T., Ferreira, C. A., Jorge, A. M., Gomes, E. F., & Gama, J. (2016). Automatic classification of anuran sounds using convolutional neural networks. In *Proceedings of the Ninth International C* Conference on Computer Science & Software Engineering* (pp. 73–78). ACM.
+
+6. Colonna, J. G., Cristo, M., & Nakamura, E. F. (2014). A distributed approach for classifying anuran species based on their calls. In *Proceedings of the 22nd International Conference on Pattern Recognition (ICPR)* (pp. 1242–1247). IEEE.
+
+7. Ribas, A. D., Colonna, J. G., Figueiredo, C. M. S., & Nakamura, E. F. (2012). Similarity clustering for data fusion in wireless sensor networks using k-means. In *Proceedings of the International Joint Conference on Neural Networks (IJCNN 2012)* (pp. 1–7). IEEE.
+
+8. Diaz, J. M., Colonna, J. G., Soares, R. B., Figueiredo, C. M. S., & Nakamura, E. F. (2012). Compressive sensing for efficiently collecting wildlife sounds with wireless sensor networks. In *Proceedings of the 21st International Conference on Computer Communications and Networks (ICCCN 2012)* (pp. 1–7). IEEE.
+
+## Citation and Acknowledgements
+
+The dataset contributors request that users cite relevant publications when using the dataset in academic or research projects.
+
+For classification tasks involving family, genus, and species labels, the following publication is particularly relevant:
+
+> Colonna, J. G., Gama, J., & Nakamura, E. F. (2016). Recognizing family, genus, and species of anuran using a hierarchical classification approach. *Lecture Notes in Computer Science, 9956*, 198–212.
