@@ -24,7 +24,7 @@ The analysis covers:
 * L1-penalized linear Support Vector Machine (SVM)
 * Hyperparameter tuning using 5-fold cross-validation
 * Feature standardization using StandardScaler
-* Monte Carlo simulations across 30 iterations
+* Monte Carlo simulations across **30 iterations**
 * Evaluation using accuracy, precision, recall, F1-score, and ROC-AUC
 * Confusion matrices and ROC curves
 
@@ -36,7 +36,7 @@ The analysis covers:
 * Iterative self-training using an L1-penalized linear SVM
 * Selection of unlabeled observations based on SVM decision-function confidence
 * Assignment of pseudo-labels to selected observations
-* Evaluation of classification performance across 30 Monte Carlo iterations
+* Evaluation of classification performance across **30 Monte Carlo iterations**
 * Comparison with fully supervised learning
 
 ### Unsupervised Learning — K-Means Clustering
@@ -60,7 +60,7 @@ The analysis covers:
 * Cluster assignment using fit_predict()
 * Majority-vote labeling of training clusters
 * Approximate out-of-sample assignment using RBF similarities
-* Evaluation across 30 Monte Carlo iterations
+* Evaluation across **30 Monte Carlo iterations**
 * Comparison with K-Means clustering and SVM-based methods
 
 ### Performance Comparison
@@ -88,8 +88,8 @@ The analysis covers:
 * Hyperparameter tuning using 5-fold cross-validation
 * Random selection of additional labeled observations
 * Incremental training set expansion in batches of 10
-* Evaluation across 50 Monte Carlo iterations
-* Recording test errors at 90 training sizes
+* Evaluation across **50 Monte Carlo iterations**
+* Recording test errors at **90 training sizes**
 
 ### Active Learning
 
@@ -100,8 +100,8 @@ The analysis covers:
 * Selection of unlabeled observations closest to the SVM decision boundary
 * Incremental training set expansion in batches of 10
 * Hyperparameter tuning using 5-fold cross-validation
-* Evaluation across 50 Monte Carlo iterations
-* Recording test errors at 90 training sizes
+* Evaluation across **50 Monte Carlo iterations**
+* Recording test errors at **90 training sizes**
 
 ### Learning Curve Comparison
 
@@ -132,6 +132,9 @@ The notebook uses relative paths to access the datasets:
 
 ```python
 df = pd.read_csv("../data/wdbc.data", header=None)
+```
+
+```python
 banknote = pd.read_csv(
     "../data/data_banknote_authentication.txt",
     header=None,
@@ -143,30 +146,30 @@ Therefore, the repository directory structure should be preserved when running t
 
 ## Datasets
 
-Wisconsin Diagnostic Breast Cancer Dataset
+### Wisconsin Diagnostic Breast Cancer Dataset
 
 The dataset contains measurements derived from digitized images of breast mass cell nuclei.
 
 The dataset includes:
 
-* 569 observations
-* 30 numerical features
-* Two diagnostic classes: Benign and Malignant
-* ID: An additional identifier column
+* **569 observations**
+* **30 numerical features**
+* **Two diagnostic classes:** Benign and Malignant
+* **ID:** An additional identifier column
 
 The numerical features are used as predictors for supervised classification and as input variables for unsupervised clustering.
 
 The diagnostic labels are used to evaluate classification and clustering performance.
 
-Banknote Authentication Dataset
+### Banknote Authentication Dataset
 
 The dataset contains features extracted from images of genuine and forged banknotes.
 
 The dataset includes:
 
-* 1,372 observations
-* Four numerical features: Variance, Skewness, Curtosis, and Entropy
-* Two classification labels: Genuine and Forged
+* **1,372 observations**
+* **Four numerical features:** Variance, Skewness, Curtosis, and Entropy
+* **Two classification labels:** Genuine and Forged
 
 The numerical features are used to train L1-penalized linear SVM classifiers.
 
